@@ -1,0 +1,171 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="Cammie Flippen" content="SitePoint">
+  <link rel="icon" href="img/yogaman.png">
+
+  <title>Top Ten Yoga Studios in NYC</title>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"></link>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-fUMURLTdEcpeYHly3PAwggI3l2UvdHNg/I+8LRph7hLDcAZm77YfDx3Tjum9d3vK" crossorigin="anonymous">
+
+  <style>
+
+    .jumbotron {
+      font-family:'Montserrat';
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+
+    #map {
+      height: 500px;
+      background: gray;
+      font-family: 'Montserrat';
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a class="navbar-brand" href="#">Yoga in NYC</a>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+      <h2>Top Ten Yoga Studios in New York City</h2>
+      <p>The best yoga studios in the city rated by quality of instruction and studio aesthetics. This list was curated by yogini Cammie Flippen.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 red">
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Brooklyn <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.hoshyoga.org">Hosh Yoga</a></li>
+                <li><a href="http://www.laughinglotus.com">Laughing Lotus Yoga</a></li>
+                <li><a href="http://www.thirdeyeyogastudio.com">Third Eye Yoga</a></li>
+              </ul>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Queens <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.yogaagora.com">Yoga Agora</a></li>
+                <li><a href="http://www.the-yoga-room.com">The Yoga Room</a></li>
+              </ul>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Manhattan <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="http://nyc.modoyoga.com">Modo Yoga NYC</a></li>
+                <li><a href="http://www.omfactorynyc.com">Om Factory Yoga</a></li>
+                <li><a href="http://yogamayanewyork.com">Yogamaya</a></li>
+                <li><a href="http://yogatothepeople.com">Yoga to the People</a></li>
+                <li><a href="http://yogavida.com/">Yoga Vida</a></li>
+              </ul>
+            </div>
+        </div>
+  </div>
+
+<div id="map"></div>
+  
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script></script>
+  <script src ="https://code.jquery.com/jquery-2.2.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
+  <script>
+    
+    var map = L.map('map').setView([40.716298,-73.982277], 12);
+
+    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    });
+
+    map.addLayer(layer)
+
+    var yogastudios = [
+       {num: "4",
+        name: "<br> <b>Hosh Yoga</b>",
+        add: "<br> 55 Nassau Ave, Brooklyn, NY 11222",
+        coord: [40.723425,-73.952419],
+      },
+       {num: "2",
+        name: "<br> <b>Laughing Lotus Yoga</b>",
+        add: "<br> 232 Broadway, Williamsburg, NY 11211",
+        coord: [40.709009,-73.960428],
+      },
+       {num: "9",
+        name: "<br> <b>Third Eye Yoga</b>",
+        add: "<br> 433 7th Ave, Brooklyn, NY 11215",
+       coord: [40.662711,-73.984691],
+      },
+       {num: "5",
+        name: "<br> <b>Yoga Agora</b>",
+        add: "<br> 33-02 Broadway, Astoria, NY 11106",
+        coord: [40.761000,-73.923794],
+      },
+       {num: "3",
+        name: "<br> <b>The Yoga Room</b>",
+        add: "<br> 1014 47th Rd, Long Island City, NY 11101",
+        coord: [40.744532,-73.952797],
+      },
+       {num: "6",
+        name: "<br> <b>Modo Yoga NYC</b>",
+        add: "<br> 434 6th Ave, New York, NY 10011",
+        coord: [40.734537,-73.998566],
+      },
+       {num: "7",
+        name: "<br> <b>Om Factory Yoga</b>",
+        add: "<br> 265 W 37th St, New York, NY 10018",
+        coord: [40.753706,-73.991949],
+      },
+       {num: "8",
+        name: "<br> <b>Yogamaya</b>",
+        add: "<br> 135 W 20th St, New York, NY 10011",
+        coord: [40.741839,-73.995629],
+      },
+       {num: "1",
+        name: "<br> <b>Yoga to the People</b>",
+        add: "<br> 12 St. Marks Pl, New York, NY 10003",
+        coord: [40.729159,-73.989342],
+      },
+       {num: "10",
+        name: "<br> <b>Hosh Yoga</b>",
+        add: "<br> 99 University Pl, New York, NY 10003",
+        coord: [40.733708,-73.992681],
+      }]
+
+    yogastudios.forEach(function(element){
+    var marker = L.marker(element.coord).addTo(map);
+     marker.bindPopup(element.num + element.name + element.add)
+      });
+
+    var marker = L.marker({
+    markerUrl: 'img/yogaman.png',
+    markerSize:     [32, 37],
+    markerAnchor:   [22, 27],
+});
+
+  </script>
+
+</body>
+</html>
